@@ -2,10 +2,10 @@
   "name": "finix-script",
   "version": "5.0.0",
   "description": "TamaRyuichi Dev Finix Script!",
-  "main": "./lib/system.js",
+  "main": "./system.js",
   "type": "commonjs",
   "scripts": {
-    "start": "node ./lib/system.js"
+    "start": "node ./system.js"
   },
   "author": "Tama_Ultraa",
   "license": "MIT",
