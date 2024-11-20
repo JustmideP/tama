@@ -1,16 +1,20 @@
-FROM node:20
+# Base image
+FROM node:16
 
-RUN git clone https://github.com/legacy112233/tama.git /root/legacy112233
+# Set working directory
+WORKDIR /usr/src/app
 
-# Clear npm cache and remove node_modules directories
-RUN npm cache clean --force
-RUN rm -rf /root/legacy112233/node_modules
+# Copy package.json and package-lock.json
+COPY package*.json ./
 
 # Install dependencies
-WORKDIR /root/legacy112233
 RUN npm install
 
-# Add additional Steps To Run...
+# Copy the rest of the application
+COPY . .
+
+# Expose the port your app uses (if necessary)
 EXPOSE 3000
-CMD ["npm","start" ]
-# IF YOU ARE MODIFYING THIS BOT DONT CHANGE THIS  RUN rm -rf /root/legacy112233/node_modules
+
+# Command to start the application
+CMD ["npm", "start"]
